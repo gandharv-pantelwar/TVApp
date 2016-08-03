@@ -58,6 +58,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Toast.makeText(this, "HELL HARV", Toast.LENGTH_LONG).show();
+
         logoImageView = (ImageView) findViewById(R.id.logoImageView);
 
         linearLayout1 = (LinearLayout) findViewById(R.id.linearLayout1);
@@ -75,16 +77,20 @@ public class MainActivity extends Activity {
 
         RequestTask requestTask = new RequestTask();
         try {
+//            Toast.makeText(this, "HELL HARV 2", Toast.LENGTH_LONG).show();
+
             String response = requestTask.execute(url).get();
             extractJSONResponse(response);
+
+//            Toast.makeText(this, "HELL HARV 3", Toast.LENGTH_LONG).show();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-
     }
 
 
@@ -165,6 +171,8 @@ public class MainActivity extends Activity {
                     .placeholder(R.mipmap.ic_launcher)
                     .error(R.mipmap.ic_launcher)
                     .into(logoImageView);
+
+//            Toast.makeText(this, json, Toast.LENGTH_LONG).show();
 
         } catch (JSONException e) {
             e.printStackTrace();
